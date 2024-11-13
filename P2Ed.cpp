@@ -114,9 +114,6 @@ void exibirEmOrdem() {
 	exibirElementosEmOrdem(raiz);
 }
 
-
-
-
 void buscar() {
 	int valor;
 	cout << "Digite o elemento: ";
@@ -283,7 +280,15 @@ void exibirElementosArvore(NO* no, int qtEspacos)
 
 void exibirElementosEmOrdem(NO* no)
 {
-	
+		if (no == NULL) {
+			return;
+		}
+		// Percorre primeiro a subárvore direita (para ordem decrescente)
+		exibirElementosEmOrdem(no->dir);
+		// Exibe o valor do nó atual
+		cout << no->valor << " ";
+		// Percorre a subárvore esquerda
+		exibirElementosEmOrdem(no->esq);
 }
 
 void buscarElementoArvore(NO* no, int valor)
